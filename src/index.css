@@ -1,3 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Zen+Dots&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .global-heading {
+        @apply font-zen-dots xl:text-[80px] lg:text-7xl md:text-6xl sm:text-5xl text-4xl
+    }
+
+    .global-paragraph {
+        @apply lg:text-lg md:text-base text-sm font-inter font-light
+    }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+.bg-hero {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent);
+    /* , url('./assets/bg_hero.png') */
+    background-size: cover;
+    background-position: center center;
+}
+
+.scroll-adjustment {
+    padding-top: 30px;
+}
+
+@media(max-height: 480px) {
+    .scroll-adjustment {
+        padding-top: 120px;
+    }
+}
+
+@media(max-height: 370px) {
+    .scroll-adjustment {
+        padding-top: 160px;
+    }
+}
+
+.image-hover {
+    position: relative;
+}
+
+.image-hover::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0%;
+    height: 0%;
+    border-radius: 10px;
+    background-color: transparent;
+    opacity: 0;
+    z-index: 20;
+    transition: 0.4s ease-in-out;
+}
+
+.image-hover:hover::after {
+    width: 95%;
+    height: 95%;
+    background-color: rgb(237, 33, 58, 0.3);
+    border: 2px solid #ED213A;
+    opacity: 1;
+    transition: 0.4s ease-in-out;
+}
